@@ -6,11 +6,11 @@ import Content from "./components/Content";
 const App = () => {
     return (
         <div className='app-wrapper'>
-            <Header className='header' />
+            <Header />
 
-            <Navig className='nav' />
+            <Navig />
 
-            <Content className='content' />
+            <Content />
         </div>
     );
 }

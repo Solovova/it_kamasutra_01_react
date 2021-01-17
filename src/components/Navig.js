@@ -1,6 +1,6 @@
 const Navig = () => {
     return (
-        <div>
+        <div  className='nav' >
             <div>
                 <a>
                     Profile

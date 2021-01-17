@@ -1,6 +1,6 @@
 const Content = () => {
     return (
-        <div>
+        <div className='content'>
             <div>
                 Ava + descr
             </div>
