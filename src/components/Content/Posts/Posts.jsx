@@ -11,12 +11,12 @@ const Posts = () => {
 
       </div>
       <div className={s.posts}>
-        <Post message="Post 1" />
-        <Post message="Post 2"/>
-        <Post message="Post 3"/>
-        <Post message="Post 4"/>
-        <Post message="Post 5"/>
-        <Post message="Post 6"/>
+        <Post message="Post 1" likesCount='0'/>
+        <Post message="Post 2" likesCount='1'/>
+        <Post message="Post 3" likesCount='4'/>
+        <Post message="Post 4" likesCount='23'/>
+        <Post message="Post 5" likesCount='32'/>
+        <Post message="Post 6" likesCount='22'/>
       </div>
     </div>
   )
