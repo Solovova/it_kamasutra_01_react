@@ -1,0 +1,9 @@
+gitk --all&
+
+git checkout d4195efa527e045ad2c34a07d6d93a6d38a18e9d
+
+если были изменения но не хочу коммитить
+git status
+git checkout изменные файлы
+
+https://github.com/it-kamasutra/react-way-of-samurai.git
