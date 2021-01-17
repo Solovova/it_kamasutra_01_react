@@ -1,0 +1,3 @@
+"start": "cross-env PORT=3006 react-scripts start", => package.json
+
+yarn add -D cross-env
