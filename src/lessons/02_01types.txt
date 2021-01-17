@@ -1,0 +1,83 @@
+import { type } from 'os';
+
+let a = 10;
+
+let name: Array<String> = ["Solo", "Vova"]
+let name2: string[] = ["Solo", "Vova"]
+
+// eslint-disable-next-line
+let uName = name[0].toUpperCase();
+alert(uName);
+
+let n: number | null = 10;
+
+let sex: "male" | "famale"
+
+type AddressType = {
+  city: string
+  country: string
+}
+
+type UserType = {
+  //sayHello: Function 
+  sayHello: (message: string) => void
+  name: string
+  age?: number
+  isSamurai: boolean
+  address?: AddressType | null //? - not necessarily
+}
+
+let user: UserType = {
+  sayHello(message: String) { alert('ttt') },
+  name: "Solo",
+  age: 42,
+  isSamurai: true
+}
+
+alert(user.age);
+
+const summ = (a: any, b: any) => {
+  return a + b;
+}
+
+alert(summ(1, "10"));
+
+//:  type = 
+const summTest: (a: number, b?: number) => number = (a: number, b: number = 1) => {
+  return a + b;
+}
+
+alert(summTest(Number("10")));
+alert(summTest(+"10"));
+alert(summTest(Number("10")));
+
+
+let initialState = {
+  name: "Solo",
+  age: 42,
+  isSamurai: true,
+  counter: 10
+}
+
+export type InitialStateType = typeof initialState;
+
+let initialStateTestNull = {
+  name: null as string | null,
+  age: null as number | null,
+  isSamurai: null as boolean | null,
+  counter: 0
+}
+
+export type initialStateTestNull = typeof initialState;
+
+let GET_TASKS = "APP/GetTASKS";
+
+type GetTasksActionsType = {
+  id: number
+  type: typeof GET_TASKS
+}
+
+let action: GetTasksActionsType = {
+  type: GET_TASKS,
+  id: 12
+}

@@ -1,0 +1,19 @@
+nodejs
+yarn
+yarn create react-app my-app --template typescript
+
+add to exists
+yarn add typescript @types/node @types/react @types/react-dom @types/jest
+
+https://www.youtube.com/watch?v=jSV2IPQz3ak&list=PLcvhF2Wqh7DM3z1XqMw0kPuxpbyMo3HvN&ab_channel=IT-KAMASUTRA
+
+typescript
+react
+AntDesign
+Apollo - библиотека для запросов
+Socket.IO WebSocket
+
+Babel JS ES6-10 (JSX тоже язык) conver to ES5 который понимают браузеры
+
+Java(Kotling)
+Hibbernate

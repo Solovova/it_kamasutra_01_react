@@ -1,0 +1,9 @@
+VSC
+
+Ctrl-X              - Del line
+Ctrl-Space          - Show filelds
+Shift + Alt + F     - Line up
+
+Brouser
+
+Middle-Mouse - Open in new window
