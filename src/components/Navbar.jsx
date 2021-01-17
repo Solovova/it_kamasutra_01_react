@@ -1,5 +1,7 @@
+import './Navbar.css'
+
 const Navbar = () => {
-    return <nav className='nav'>
+    return <nav className='navbar'>
         <div>
             <a>Profile</a>
         </div>
