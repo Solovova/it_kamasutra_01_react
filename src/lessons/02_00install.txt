@@ -1,6 +1,7 @@
 nodejs
 yarn
 yarn create react-app my-app --template typescript
+yarn start
 
 add to exists
 yarn add typescript @types/node @types/react @types/react-dom @types/jest
