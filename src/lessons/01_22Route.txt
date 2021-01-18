@@ -1,0 +1,5 @@
+
+                    <BrowserRouter>
+                    <Route path='/profile' component={Profile}/>
+                    <Route exact path='/messages' component={Messages}/> Полное совпадение
+                    </BrowserRouter>
