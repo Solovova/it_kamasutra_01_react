@@ -1,0 +1,3 @@
+npm install react-router-dom одноразово установить
+
+npm install react-router-dom --save-prod установить и записать в package.json
