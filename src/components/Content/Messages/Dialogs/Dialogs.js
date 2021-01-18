@@ -2,7 +2,7 @@ import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 
 const Dialogs = () => {
-    let dialogsData = [
+    let dialogItemsData = [
         {id: 1, name: 'Dimych'},
         {id: 2, name: 'Andrew'},
         {id: 3, name: 'Sveta'},
@@ -11,10 +11,11 @@ const Dialogs = () => {
         {id: 6, name: 'Valera'}
     ]
 
+    let dialogItemElements = dialogItemsData.map(dialogItem => <DialogItem name={dialogItem.name} id={dialogItem.id} />);
+
     return (
         <div className={s.dialogs}>
-            <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-            <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+            {dialogItemElements}
         </div>
     );
 };

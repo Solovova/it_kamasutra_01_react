@@ -1,0 +1,20 @@
+        let newArray = messagesData.map((el) => {
+            if (isMaleName(el)) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+
+        let newArray = messagesData.map((el) => {
+            return isMaleName(el) ? 1 : 0;
+        })
+
+
+        let newArray = messagesData.map((el) =>  isMaleName(el) ? 1 : 0)
+
+        let newArray = messagesData.map(el =>  isMaleName(el) ? 1 : 0)
+
+    let newArray = messagesData.map((el) =>  isMaleName(el) ? {id: 1, name:el} : {id: 0, name:el})
+
+    let newArray = messagesData.map((el) =>  ({name1: el, name:el})) //need ()
