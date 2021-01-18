@@ -2,27 +2,28 @@ import s from './Posts.module.css';
 import Post from './Post/Post';
 
 const Posts = () => {
-  return (
-    <div>
-      My posts
-      <div>
-          <div>
-              <textarea></textarea>
-          </div>
-          <div>
-              <button>Add post</button>
-          </div>
-      </div>
-      <div className={s.posts}>
-        <Post message="Post 1" likesCount='0'/>
-        <Post message="Post 2" likesCount='1'/>
-        <Post message="Post 3" likesCount='4'/>
-        <Post message="Post 4" likesCount='23'/>
-        <Post message="Post 5" likesCount='32'/>
-        <Post message="Post 6" likesCount='22'/>
-      </div>
-    </div>
-  )
+    let postData = [
+        {id: 1, message: 'Hi, how are you?', likesCount: 12},
+        {id: 2, message: 'It\'s my first post', likesCount: 11}
+    ]
+
+    return (
+        <div>
+            My posts
+            <div>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
+            </div>
+            <div className={s.posts}>
+                <Post message={postData[0].message} likesCount={postData[0].likesCount}/>
+                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+            </div>
+        </div>
+    )
 
 }
 

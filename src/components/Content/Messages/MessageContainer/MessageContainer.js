@@ -2,15 +2,18 @@ import s from "./MessageContainer.module.css";
 import MessageItem from "./MessageItem/MassageItem";
 
 const MessageContainer = () => {
+    let messagesData = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it-kamasutra?'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'}
+    ]
+
     return (
         <div className={s.messageContainer}>
-            <MessageItem text = "Message 1" />
-            <MessageItem text = "Message 2" />
-            <MessageItem text = "Message 3" />
-            <MessageItem text = "Message 4" />
-            <MessageItem text = "Message 5" />
-            <MessageItem text = "Message 6" />
-            <MessageItem text = "Message 7" />
+            <MessageItem message={messagesData[0].message}/>
+            <MessageItem message={messagesData[1].message}/>
         </div>
     );
 };
