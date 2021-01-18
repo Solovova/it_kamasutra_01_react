@@ -1,6 +1,6 @@
-import s from './Dialog.module.css'
+import s from './Messages.module.css'
 
-const Dialog = () => {
+const Messages = () => {
     return (
         <div className={s.dialog}>
             Dialog
@@ -8,4 +8,4 @@ const Dialog = () => {
     );
 }
 
-export default Dialog;
+export default Messages;
