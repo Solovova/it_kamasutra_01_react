@@ -6,9 +6,12 @@ const Posts = () => {
     <div>
       My posts
       <div>
-        <textarea></textarea>
-        <button>Add post</button>
-
+          <div>
+              <textarea></textarea>
+          </div>
+          <div>
+              <button>Add post</button>
+          </div>
       </div>
       <div className={s.posts}>
         <Post message="Post 1" likesCount='0'/>
