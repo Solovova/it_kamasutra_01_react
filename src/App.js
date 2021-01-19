@@ -5,15 +5,21 @@ import Profile from "./components/Content/Profile/Profile";
 import Messages from "./components/Content/Messages/Messages";
 import {BrowserRouter, Route} from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/messages' component={Messages}/>
+                    {/*<Profile data={props.data.profile}/>*/}
+                    {/*<Messages data={props.data.messages}/>*/}
+                    <Route path='/profile' render={() =>
+                        <Profile state={props.state.profile}/>
+                    }/>
+                    <Route path='/messages' render={() =>
+                        <Messages state={props.state.messages}/>
+                    }/>
                 </div>
             </div>
         </BrowserRouter>
