@@ -31,7 +31,7 @@ let store = {
         profileComp :{
             postsComp: {
                 posts: postsData,
-                newPostText: 'New post',
+                newPostText: '',
             }
         },
         messagesComp: {
@@ -40,7 +40,7 @@ let store = {
             },
             messageContainerComp: {
                 messageItemsData: messageItemsData,
-                newMessageText: 'New message'
+                newMessageText: ''
             }
         }
     },

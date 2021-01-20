@@ -27,7 +27,7 @@ const MessageContainer = (props) => {
                 {messageItemElements}
                 <div>
                     <div>
-                        <textarea onChange={onNewMessageTextChange} ref={newMessageElement} value={props.state.newMessageText}></textarea>
+                        <textarea placeholder='Enter your message' onChange={onNewMessageTextChange} ref={newMessageElement} value={props.state.newMessageText}></textarea>
                     </div>
                     <div>
                         <button onClick={onNewMessageClick}>New message</button>
