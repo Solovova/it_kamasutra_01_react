@@ -1,5 +1,5 @@
 const ADD_POST = 'ADD-POST'
-const POST_TEXT_CHANGE = 'POST-TEXT-CHANGE'
+const UPDATE_POST_TEXT_CHANGE = 'UPDATE-POST-TEXT-CHANGE'
 
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
@@ -45,7 +45,7 @@ let store = {
         console.log("State changed")
     },
 
-    _AddPost() {
+    _addPost() {
         debugger;
         const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
         const sorted = ids.sort((a, b) => a - b);
@@ -60,7 +60,7 @@ let store = {
         this._observer(this._state);
     },
 
-    _PostTextChange(newPostText) {
+    _updatePostTextChange(newPostText) {
         this._state.profileComp.postsComp.newPostText = newPostText;
         this._observer(this._state);
     },
@@ -75,20 +75,15 @@ let store = {
 
     dispatch(action) {
         if (action.type === ADD_POST) {
-            this._AddPost()
-        }else if (action.type === POST_TEXT_CHANGE) {
-            this._PostTextChange(action.newPostText)
+            this._addPost()
+        }else if (action.type === UPDATE_POST_TEXT_CHANGE) {
+            this._updatePostTextChange(action.newPostText)
         }
     }
 }
 
-export const addPostActionCreator = () => {
-    return ({type:ADD_POST})
-}
-
-export const postTextChangeActionCreator = (text) => {
-    return {type:POST_TEXT_CHANGE,newPostText: text}
-}
+export const addPostActionCreator = () => ({type:ADD_POST})
+export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TEXT_CHANGE,newPostText: text})
 
 export default store;
 window.store = store //for
