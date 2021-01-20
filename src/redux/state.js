@@ -31,7 +31,7 @@ let state = {
         posts: {
             posts: postsData,
             newPostText: 'Test text',
-            onAddPostClick: () => {
+            onAddPostClick() {
                 const ids = state.profile.posts.posts.map(post => post.id);
                 const sorted = ids.sort((a, b) => a - b);
                 const key = sorted[sorted.length - 1] + 1
@@ -45,7 +45,7 @@ let state = {
                 renderEntireTree(state);
             },
 
-            onNewPostTextChange: (newPostText) => {
+            onNewPostTextChange(newPostText)  {
                 state.profile.posts.newPostText = newPostText;
                 renderEntireTree(state);
             }
