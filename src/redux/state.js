@@ -27,13 +27,13 @@ let state = {
         posts: {
             posts: postsData,
             newPostText: 'Test text',
-            onAddPostClick: (newMessage) => {
+            onAddPostClick: () => {
                 const ids = state.profile.posts.posts.map(post => post.id);
                 const sorted = ids.sort((a, b) => a - b);
                 const key = sorted[sorted.length - 1] + 1
                 let newPost = {
                     id: key,
-                    message:newMessage,
+                    message:state.profile.posts.newPostText,
                     likesCount: 0
                 };
                 state.profile.posts.posts.push(newPost);
