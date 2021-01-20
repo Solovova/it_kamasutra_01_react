@@ -5,7 +5,7 @@ const Posts = (props) => {
     let postElements = props.state.posts.map( post => <Post message={post.message} likesCount={post.likesCount}/>);
     let onClickAdd = () => {
 
-        //Так нельзя
+        //Так нельзя пототму что React контролирует DOM <---> VirtualDOM
         let text = document.getElementById("test_new_add").value
         alert(text)
     }
