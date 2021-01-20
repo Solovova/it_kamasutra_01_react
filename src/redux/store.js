@@ -1,8 +1,5 @@
-const ADD_POST = 'ADD_POST'
-const UPDATE_POST_TEXT_CHANGE = 'UPDATE_POST_TEXT_CHANGE'
-
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_MESSAGE_TEXT_CHANGE = 'UPDATE_MESSAGE_TEXT_CHANGE'
+import reducerMessages from "./reducerMessages";
+import reducerProfile from "./reducerProfile";
 
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
@@ -49,43 +46,6 @@ let store = {
         console.log("State changed")
     },
 
-    _addPost() {
-        const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
-        const sorted = ids.sort((a, b) => a - b);
-        const key = sorted[sorted.length - 1] + 1
-        let newPost = {
-            id: key,
-            message:this._state.profileComp.postsComp.newPostText,
-            likesCount: 0
-        };
-        this._state.profileComp.postsComp.posts.push(newPost);
-        this._state.profileComp.postsComp.newPostText = '';
-        this._observer(this._state);
-    },
-
-    _updatePostTextChange(newPostText) {
-        this._state.profileComp.postsComp.newPostText = newPostText;
-        this._observer(this._state);
-    },
-
-    _addMessage() {
-        const ids = this._state.messagesComp.messageContainerComp.messageItemsData.map(post => post.id);
-        const sorted = ids.sort((a, b) => a - b);
-        const key = sorted[sorted.length - 1] + 1
-        let newMessage = {
-            id: key,
-            message:this._state.messagesComp.messageContainerComp.newMessageText
-        };
-        this._state.messagesComp.messageContainerComp.messageItemsData.push(newMessage);
-        this._state.messagesComp.messageContainerComp.newMessageText = '';
-        this._observer(this._state);
-    },
-
-    _updateMessageTextChange(newMessageText) {
-        this._state.messagesComp.messageContainerComp.newMessageText = newMessageText;
-        this._observer(this._state);
-    },
-
     getState() {
         return this._state
     },
@@ -95,23 +55,11 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost()
-        }else if (action.type === UPDATE_POST_TEXT_CHANGE) {
-            this._updatePostTextChange(action.newPostText)
-        }else if (action.type === ADD_MESSAGE) {
-            this._addMessage()
-        }else if (action.type === UPDATE_MESSAGE_TEXT_CHANGE) {
-            this._updateMessageTextChange(action.newMessageText)
-        }
+        this._state.profileComp = reducerProfile(this._state.profileComp,action)
+        this._state.messagesComp = reducerMessages(this._state.messagesComp,action)
+        this._observer(this._state);
     }
 }
-
-export const addPostActionCreator = () => ({type:ADD_POST})
-export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TEXT_CHANGE,newPostText: text})
-
-export const addMessageActionCreator = () => ({type:ADD_MESSAGE})
-export const updateMessageTextChangeActionCreator = (text) => ({type:UPDATE_MESSAGE_TEXT_CHANGE,newMessageText: text})
 
 export default store;
 window.store = store //for
