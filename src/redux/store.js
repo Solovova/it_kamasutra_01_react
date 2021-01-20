@@ -43,6 +43,7 @@ let store = {
     },
 
     _AddPost() {
+        debugger;
         const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
         const sorted = ids.sort((a, b) => a - b);
         const key = sorted[sorted.length - 1] + 1
@@ -76,6 +77,14 @@ let store = {
             this._PostTextChange(action.newPostText)
         }
     }
+}
+
+export const addPostActionCreator = () => {
+    return ({type:'ADD-POST'})
+}
+
+export const postTextChangeActionCreator = (text) => {
+    return {type:'POST-TEXT-CHANGE',newPostText: text}
 }
 
 export default store;
