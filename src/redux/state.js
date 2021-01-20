@@ -1,4 +1,8 @@
-import {renderEntireTree} from "../render";
+import React from "react";
+
+let renderEntireTree = (state) => {
+    console.log("State changed")
+}
 
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
@@ -51,6 +55,10 @@ let state = {
         dialogs: dialogItemsData,
         messageContainer: messageItemsData
     }
+}
+
+export const subscribe = (observer) => {
+    renderEntireTree = observer;
 }
 
 export default state;
