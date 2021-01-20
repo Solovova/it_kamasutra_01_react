@@ -7,7 +7,6 @@ const Posts = (props) => {
     let newPostElement = React.createRef()
     let onAddPostClick = () => {
         props.state.onAddPostClick();
-        props.state.onNewPostTextChange('');
     }
 
     let onNewPostTextChange = () => {

@@ -37,6 +37,7 @@ let state = {
                     likesCount: 0
                 };
                 state.profile.posts.posts.push(newPost);
+                state.profile.posts.newPostText = '';
                 renderEntireTree(state);
             },
 
