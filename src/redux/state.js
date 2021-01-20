@@ -57,12 +57,12 @@ let store = {
         };
         this._state.profileComp.postsComp.posts.push(newPost);
         this._state.profileComp.postsComp.newPostText = '';
-        this._observer();
+        this._observer(this._state);
     },
 
     onNewPostTextChange(newPostText)  {
         this._state.profileComp.postsComp.newPostText = newPostText;
-        this._observer();
+        this._observer(this._state);
     },
 
     subscribe(observer) {
@@ -71,3 +71,4 @@ let store = {
 }
 
 export default store;
+window.store = store //for

@@ -1,0 +1,7 @@
+если мы передаем callback функцию к примеру
+1. addPost = {store.addPost}
+то если вызовем функцию потом
+2. props.addPost()
+то она вызовется з this = props
+чтобы этой ошибки не было нужно передавать callback следующим путем
+addPost = {store.addPost.bind(store)}
