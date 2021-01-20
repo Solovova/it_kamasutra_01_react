@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST'
+const POST_TEXT_CHANGE = 'POST-TEXT-CHANGE'
+
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It\'s my first post11', likesCount: 11}
@@ -71,20 +74,20 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             this._AddPost()
-        }else if (action.type === 'POST-TEXT-CHANGE') {
+        }else if (action.type === POST_TEXT_CHANGE) {
             this._PostTextChange(action.newPostText)
         }
     }
 }
 
 export const addPostActionCreator = () => {
-    return ({type:'ADD-POST'})
+    return ({type:ADD_POST})
 }
 
 export const postTextChangeActionCreator = (text) => {
-    return {type:'POST-TEXT-CHANGE',newPostText: text}
+    return {type:POST_TEXT_CHANGE,newPostText: text}
 }
 
 export default store;
