@@ -1,7 +1,17 @@
 const ADD_POST = 'ADD_POST'
 const UPDATE_POST_TEXT_CHANGE = 'UPDATE_POST_TEXT_CHANGE'
 
-const reducerProfile = (state, action) => {
+let initialState = {
+    postsComp: {
+        posts: [
+            {id: 1, message: 'Hi, how are you?', likesCount: 12},
+            {id: 2, message: 'It\'s my first post11', likesCount: 11}
+        ],
+        newPostText: ''
+    }
+}
+
+const reducerProfile = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             const ids = state.postsComp.posts.map(post => post.id);
@@ -19,6 +29,7 @@ const reducerProfile = (state, action) => {
             state.postsComp.newPostText = action.newPostText;
             return state;
         default:
+            console.log("def prof")
             return state;
     }
 }
@@ -26,5 +37,5 @@ const reducerProfile = (state, action) => {
 export const addPostActionCreator = () => ({type:ADD_POST});
 export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TEXT_CHANGE,newPostText: text});
 
-export default reducerProfile
+export default reducerProfile;
 
