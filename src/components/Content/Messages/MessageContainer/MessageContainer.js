@@ -9,15 +9,14 @@ import {
 const MessageContainer = (props) => {
         let messageItemElements = props.state.messageItemsData.map(messageItem => <MessageItem
             message={messageItem.message}/>)
-        let newMessageElement = React.createRef()
 
         let onNewMessageClick = () => {
             let action = addMessageActionCreator()
             props.dispatch(action)
         }
 
-        let onNewMessageTextChange = () => {
-            let text = newMessageElement.current.value;
+        let onNewMessageTextChange = (e) => {
+            let text = e.target.value;
             let action = updateMessageTextChangeActionCreator(text)
             props.dispatch(action)
         }
@@ -27,7 +26,7 @@ const MessageContainer = (props) => {
                 {messageItemElements}
                 <div>
                     <div>
-                        <textarea placeholder='Enter your message' onChange={onNewMessageTextChange} ref={newMessageElement} value={props.state.newMessageText}></textarea>
+                        <textarea placeholder='Enter your message' onChange={onNewMessageTextChange} value={props.state.newMessageText}></textarea>
                     </div>
                     <div>
                         <button onClick={onNewMessageClick}>New message</button>
