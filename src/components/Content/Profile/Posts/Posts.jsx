@@ -7,7 +7,8 @@ const Posts = (props) => {
     let newPostElement = React.createRef()
     let onAddPostClick = () => {
         let text = newPostElement.current.value;
-        alert(text)
+        //alert(text)
+        props.state.onAddPostClick(text);
     }
 
     return (

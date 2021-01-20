@@ -1,3 +1,5 @@
+import {renderEntireTree} from "../render";
+
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It\'s my first post11', likesCount: 11}
@@ -24,11 +26,17 @@ let state = {
     profile :{
         posts: {
             posts: postsData,
-            onClickAdd: () => {
-                // const ids = this.profile.posts.posts.map(post => post.id);
-                // const sorted = ids.sort((a, b) => a - b);
-                // const key = sorted[sorted.length - 1] + 1
-                alert(postsData)
+            onAddPostClick: (newMessage) => {
+                const ids = state.profile.posts.posts.map(post => post.id);
+                const sorted = ids.sort((a, b) => a - b);
+                const key = sorted[sorted.length - 1] + 1
+                let newPost = {
+                    id: key,
+                    message:newMessage,
+                    likesCount: 0
+                };
+                state.profile.posts.posts.push(newPost);
+                renderEntireTree(state);
             }
         }
     },
