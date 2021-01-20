@@ -7,22 +7,20 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    {/*<Profile data={props.data.profile}/>*/}
-                    {/*<Messages data={props.data.messages}/>*/}
-                    <Route path='/profile' render={() =>
-                        <Profile state={props.state.profile}/>
-                    }/>
-                    <Route path='/messages' render={() =>
-                        <Messages state={props.state.messages}/>
-                    }/>
-                </div>
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                {/*<Profile data={props.data.profile}/>*/}
+                {/*<Messages data={props.data.messages}/>*/}
+                <Route path='/profile' render={() =>
+                    <Profile state={props.state.profile}/>
+                }/>
+                <Route path='/messages' render={() =>
+                    <Messages state={props.state.messages}/>
+                }/>
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 
