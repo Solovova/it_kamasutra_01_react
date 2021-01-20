@@ -113,6 +113,5 @@ export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TE
 export const addMessageActionCreator = () => ({type:ADD_MESSAGE})
 export const updateMessageTextChangeActionCreator = (text) => ({type:UPDATE_MESSAGE_TEXT_CHANGE,newMessageText: text})
 
-
 export default store;
 window.store = store //for

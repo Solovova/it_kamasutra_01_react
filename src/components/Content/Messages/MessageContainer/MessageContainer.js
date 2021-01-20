@@ -16,7 +16,6 @@ const MessageContainer = (props) => {
             props.dispatch(action)
         }
 
-
         let onNewMessageTextChange = () => {
             let text = newMessageElement.current.value;
             let action = updateMessageTextChangeActionCreator(text)
