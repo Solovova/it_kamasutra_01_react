@@ -1,12 +1,12 @@
+import React from 'react';
 import s from './Posts.module.css';
 import Post from './Post/Post';
 
 const Posts = (props) => {
     let postElements = props.state.posts.map( post => <Post message={post.message} likesCount={post.likesCount}/>);
-    let onClickAdd = () => {
-
-        //Так нельзя пототму что React контролирует DOM <---> VirtualDOM
-        let text = document.getElementById("test_new_add").value
+    let newPostElement = React.createRef()
+    let onAddPostClick = () => {
+        let text = newPostElement.current.value;
         alert(text)
     }
 
@@ -15,10 +15,10 @@ const Posts = (props) => {
             My posts
             <div>
                 <div>
-                    <textarea id="test_new_add"></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick={onClickAdd}>Add post</button>
+                    <button onClick={onAddPostClick}>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
