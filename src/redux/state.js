@@ -26,6 +26,7 @@ let state = {
     profile :{
         posts: {
             posts: postsData,
+            newPostText: 'Test text',
             onAddPostClick: (newMessage) => {
                 const ids = state.profile.posts.posts.map(post => post.id);
                 const sorted = ids.sort((a, b) => a - b);
@@ -36,6 +37,11 @@ let state = {
                     likesCount: 0
                 };
                 state.profile.posts.posts.push(newPost);
+                renderEntireTree(state);
+            },
+
+            onNewPostTextChange: (newPostText) => {
+                state.profile.posts.newPostText = newPostText;
                 renderEntireTree(state);
             }
         }
