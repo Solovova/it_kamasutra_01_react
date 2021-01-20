@@ -22,7 +22,15 @@ let messageItemsData = [
 
 let state = {
     profile :{
-        posts: postsData
+        posts: {
+            posts: postsData,
+            onClickAdd: () => {
+                // const ids = this.profile.posts.posts.map(post => post.id);
+                // const sorted = ids.sort((a, b) => a - b);
+                // const key = sorted[sorted.length - 1] + 1
+                alert(postsData)
+            }
+        }
     },
     messages: {
         dialogs: dialogItemsData,
