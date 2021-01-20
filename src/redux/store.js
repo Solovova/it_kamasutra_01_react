@@ -42,6 +42,25 @@ let store = {
         console.log("State changed")
     },
 
+    _AddPost() {
+        const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
+        const sorted = ids.sort((a, b) => a - b);
+        const key = sorted[sorted.length - 1] + 1
+        let newPost = {
+            id: key,
+            message:this._state.profileComp.postsComp.newPostText,
+            likesCount: 0
+        };
+        this._state.profileComp.postsComp.posts.push(newPost);
+        this._state.profileComp.postsComp.newPostText = '';
+        this._observer(this._state);
+    },
+
+    _PostTextChange(newPostText) {
+        this._state.profileComp.postsComp.newPostText = newPostText;
+        this._observer(this._state);
+    },
+
     getState() {
         return this._state
     },
@@ -52,20 +71,9 @@ let store = {
 
     dispatch(action) {
         if (action.type === 'ADD-POST') {
-            const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
-            const sorted = ids.sort((a, b) => a - b);
-            const key = sorted[sorted.length - 1] + 1
-            let newPost = {
-                id: key,
-                message:this._state.profileComp.postsComp.newPostText,
-                likesCount: 0
-            };
-            this._state.profileComp.postsComp.posts.push(newPost);
-            this._state.profileComp.postsComp.newPostText = '';
-            this._observer(this._state);
+            this._AddPost()
         }else if (action.type === 'POST-TEXT-CHANGE') {
-            this._state.profileComp.postsComp.newPostText = action.newPostText;
-            this._observer(this._state);
+            this._PostTextChange(action.newPostText)
         }
     }
 }
