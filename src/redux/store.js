@@ -1,6 +1,9 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_TEXT_CHANGE = 'UPDATE-POST-TEXT-CHANGE'
 
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_MESSAGE_TEXT_CHANGE = 'UPDATE-MESAGE-TEXT-CHANGE'
+
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It\'s my first post11', likesCount: 11}
@@ -28,7 +31,7 @@ let store = {
         profileComp :{
             postsComp: {
                 posts: postsData,
-                newPostText: 'Test text',
+                newPostText: 'New post',
             }
         },
         messagesComp: {
@@ -36,7 +39,8 @@ let store = {
                 dialogItemsData: dialogItemsData
             },
             messageContainerComp: {
-                messageItemsData: messageItemsData
+                messageItemsData: messageItemsData,
+                newMessageText: 'New message'
             }
         }
     },
@@ -46,7 +50,6 @@ let store = {
     },
 
     _addPost() {
-        debugger;
         const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
         const sorted = ids.sort((a, b) => a - b);
         const key = sorted[sorted.length - 1] + 1
@@ -65,6 +68,24 @@ let store = {
         this._observer(this._state);
     },
 
+    _addMessage() {
+        const ids = this._state.messagesComp.messageContainerComp.messageItemsData.map(post => post.id);
+        const sorted = ids.sort((a, b) => a - b);
+        const key = sorted[sorted.length - 1] + 1
+        let newMessage = {
+            id: key,
+            message:this._state.messagesComp.messageContainerComp.newMessageText
+        };
+        this._state.messagesComp.messageContainerComp.messageItemsData.push(newMessage);
+        this._state.messagesComp.messageContainerComp.newMessageText = '';
+        this._observer(this._state);
+    },
+
+    _updateMessageTextChange(newMessageText) {
+        this._state.messagesComp.messageContainerComp.newMessageText = newMessageText;
+        this._observer(this._state);
+    },
+
     getState() {
         return this._state
     },
@@ -78,12 +99,20 @@ let store = {
             this._addPost()
         }else if (action.type === UPDATE_POST_TEXT_CHANGE) {
             this._updatePostTextChange(action.newPostText)
+        }else if (action.type === ADD_MESSAGE) {
+            this._addMessage()
+        }else if (action.type === UPDATE_MESSAGE_TEXT_CHANGE) {
+            this._updateMessageTextChange(action.newMessageText)
         }
     }
 }
 
 export const addPostActionCreator = () => ({type:ADD_POST})
 export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TEXT_CHANGE,newPostText: text})
+
+export const addMessageActionCreator = () => ({type:ADD_MESSAGE})
+export const updateMessageTextChangeActionCreator = (text) => ({type:UPDATE_MESSAGE_TEXT_CHANGE,newMessageText: text})
+
 
 export default store;
 window.store = store //for
