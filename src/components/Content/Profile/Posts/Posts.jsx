@@ -6,12 +6,12 @@ const Posts = (props) => {
     let postElements = props.state.posts.map( post => <Post message={post.message} likesCount={post.likesCount}/>);
     let newPostElement = React.createRef()
     let onAddPostClick = () => {
-        props.store.onAddPostClick();
+        props.dispatch({type:'ADD-POST'})
     }
 
     let onNewPostTextChange = () => {
         let text = newPostElement.current.value;
-        props.store.onNewPostTextChange(text);
+        props.dispatch({type:'POST-TEXT-CHANGE',newPostText:text})
     }
 
     return (
