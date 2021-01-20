@@ -57,7 +57,7 @@ let store = {
     dispatch(action) {
         this._state.profileComp = reducerProfile(this._state.profileComp,action)
         this._state.messagesComp = reducerMessages(this._state.messagesComp,action)
-        this._observer(this._state);
+        this._observer();
     }
 }
 
