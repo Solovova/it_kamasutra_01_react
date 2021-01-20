@@ -1,9 +1,3 @@
-import React from "react";
-
-let renderEntireTree = (state) => {
-    console.log("State changed")
-}
-
 let postsData = [
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It\'s my first post11', likesCount: 11}
@@ -26,39 +20,54 @@ let messageItemsData = [
     {id: 5, message: 'Yo1'}
 ]
 
-let state = {
-    profile :{
-        posts: {
-            posts: postsData,
-            newPostText: 'Test text',
-            onAddPostClick() {
-                const ids = state.profile.posts.posts.map(post => post.id);
-                const sorted = ids.sort((a, b) => a - b);
-                const key = sorted[sorted.length - 1] + 1
-                let newPost = {
-                    id: key,
-                    message:state.profile.posts.newPostText,
-                    likesCount: 0
-                };
-                state.profile.posts.posts.push(newPost);
-                state.profile.posts.newPostText = '';
-                renderEntireTree(state);
+let store = {
+    _state: {
+        profileComp :{
+            postsComp: {
+                posts: postsData,
+                newPostText: 'Test text',
+            }
+        },
+        messagesComp: {
+            dialogsComp: {
+                dialogItemsData: dialogItemsData
             },
-
-            onNewPostTextChange(newPostText)  {
-                state.profile.posts.newPostText = newPostText;
-                renderEntireTree(state);
+            messageContainerComp: {
+                messageItemsData: messageItemsData
             }
         }
     },
-    messages: {
-        dialogs: dialogItemsData,
-        messageContainer: messageItemsData
+
+    _observer() {
+        console.log("State changed")
+    },
+
+    getState() {
+        return this._state
+    },
+
+    onAddPostClick() {
+        const ids = this._state.profileComp.postsComp.posts.map(post => post.id);
+        const sorted = ids.sort((a, b) => a - b);
+        const key = sorted[sorted.length - 1] + 1
+        let newPost = {
+            id: key,
+            message:this._state.profileComp.postsComp.newPostText,
+            likesCount: 0
+        };
+        this._state.profileComp.postsComp.posts.push(newPost);
+        this._state.profileComp.postsComp.newPostText = '';
+        this._observer();
+    },
+
+    onNewPostTextChange(newPostText)  {
+        this._state.profileComp.postsComp.newPostText = newPostText;
+        this._observer();
+    },
+
+    subscribe(observer) {
+        this._observer = observer;
     }
 }
 
-export const subscribe = (observer) => {
-    renderEntireTree = observer;
-}
-
-export default state;
+export default store;

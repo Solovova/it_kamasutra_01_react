@@ -3,7 +3,7 @@ import MessageItem from "./MessageItem/MassageItem";
 import React from "react";
 
 const MessageContainer = (props) => {
-        let messageItemElements = props.state.map(messageItem => <MessageItem message={messageItem.message}/>)
+        let messageItemElements = props.state.messageItemsData.map(messageItem => <MessageItem message={messageItem.message}/>)
         let newMessageElement = React.createRef()
         let onNewMessageClick = () => {
             let text = newMessageElement.current.value;
