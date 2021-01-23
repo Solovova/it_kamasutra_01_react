@@ -1,22 +1,19 @@
 import s from "./MessagesList.module.css";
 import MessageItem from "./MessageItem/MassageItem";
 import React from "react";
-import {addMessageActionCreator, updateMessageTextChangeActionCreator} from "../../../../redux/reducerMessages";
 
 
 const MessagesList = (props) => {
-        let messageItemElements = props.state.messageItemsData.map(messageItem => <MessageItem
-            message={messageItem.message}/>)
+        let messageItemElements = props.messageItemsData.map(messageItem =>
+            <MessageItem message={messageItem.message}/>)
 
         let onNewMessageClick = () => {
-            let action = addMessageActionCreator()
-            props.dispatch(action)
+            props.newMessageClick()
         }
 
         let onNewMessageTextChange = (e) => {
             let text = e.target.value;
-            let action = updateMessageTextChangeActionCreator(text)
-            props.dispatch(action)
+            props.newMessageTextChange(text)
         }
 
         return (
@@ -24,7 +21,9 @@ const MessagesList = (props) => {
                 {messageItemElements}
                 <div>
                     <div>
-                        <textarea placeholder='Enter your message' onChange={onNewMessageTextChange} value={props.state.newMessageText}></textarea>
+                        <textarea placeholder='Enter your message'
+                                  onChange={onNewMessageTextChange}
+                                  value={props.newMessageText}></textarea>
                     </div>
                     <div>
                         <button onClick={onNewMessageClick}>New message</button>

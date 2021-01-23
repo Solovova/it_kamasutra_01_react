@@ -15,7 +15,7 @@ const App = (props) => {
                     <Profile store={props.store}/>
                 }/>
                 <Route path='/messages' render={() =>
-                    <Messages state={props.state.messagesComp} dispatch = {props.dispatch}/>
+                    <Messages store={props.store} state={props.state.messagesComp} dispatch = {props.dispatch}/>
                 }/>
             </div>
         </div>
