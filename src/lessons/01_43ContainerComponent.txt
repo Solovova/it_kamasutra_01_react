@@ -1,0 +1,3 @@
+1. Container component - умная компонента все остальные presentation component
+Container component - орерирует store
+Presentation component - оперирует стартовыми данными и callbacks

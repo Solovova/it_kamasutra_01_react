@@ -1,10 +1,10 @@
-import s from "./MessageContainer.module.css";
+import s from "./MessagesList.module.css";
 import MessageItem from "./MessageItem/MassageItem";
 import React from "react";
 import {addMessageActionCreator, updateMessageTextChangeActionCreator} from "../../../../redux/reducerMessages";
 
 
-const MessageContainer = (props) => {
+const MessagesList = (props) => {
         let messageItemElements = props.state.messageItemsData.map(messageItem => <MessageItem
             message={messageItem.message}/>)
 
@@ -36,4 +36,4 @@ const MessageContainer = (props) => {
     }
 ;
 
-export default MessageContainer;
+export default MessagesList;
