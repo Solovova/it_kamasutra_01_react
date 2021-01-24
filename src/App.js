@@ -12,10 +12,10 @@ const App = (props) => {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/profile' render={() =>
-                    <Profile store={props.store}/>
+                    <Profile />
                 }/>
                 <Route path='/messages' render={() =>
-                    <Messages store={props.store} state={props.state.messagesComp} dispatch = {props.dispatch}/>
+                    <Messages />
                 }/>
             </div>
         </div>
