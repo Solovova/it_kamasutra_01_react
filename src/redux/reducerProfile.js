@@ -12,6 +12,8 @@ let initialState = {
 }
 
 const reducerProfile = (state = initialState, action) => {
+    let stateCopy = {...state};
+
     switch (action.type) {
         case ADD_POST:
             const ids = state.postsComp.posts.map(post => post.id);
@@ -22,12 +24,15 @@ const reducerProfile = (state = initialState, action) => {
                 message:state.postsComp.newPostText,
                 likesCount: 0
             };
-            state.postsComp.posts.push(newPost);
-            state.postsComp.newPostText = '';
-            return state;
+            stateCopy.postsComp = {...state.postsComp}
+            stateCopy.postsComp.posts = [...state.postsComp.posts]
+            stateCopy.postsComp.posts.push(newPost);
+            stateCopy.postsComp.newPostText = '';
+            return stateCopy;
         case UPDATE_POST_TEXT_CHANGE:
-            state.postsComp.newPostText = action.newPostText;
-            return state;
+            stateCopy.postsComp = {...state.postsComp}
+            stateCopy.postsComp.newPostText = action.newPostText;
+            return stateCopy;
         default:
             console.log("def prof")
             return state;
