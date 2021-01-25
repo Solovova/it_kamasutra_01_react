@@ -1,0 +1,2 @@
+npm install react-redux --save-prod
+прослойка UI (React) <-> BLL (Redux) not work in next lesson work :)

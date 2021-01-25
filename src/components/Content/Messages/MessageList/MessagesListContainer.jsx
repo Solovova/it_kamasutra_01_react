@@ -1,36 +1,22 @@
 import React from "react";
 import {addMessageActionCreator, updateMessageTextChangeActionCreator} from "../../../../redux/reducerMessages";
 import MessagesList from "./MessagesList";
-import StoreContext from "../../../../StoreContext";
+import {connect} from "react-redux";
 
+let mapStateToProps = (state) => ({
+    messageItemsData: state.messagesComp.messageContainerComp.messageItemsData,
+    newMessageText: state.messagesComp.messageContainerComp.newMessageText
+})
 
-const MessagesListContainer = () => {
-        return (
-            <StoreContext.Consumer>
-                {
-                    store => {
-                        let state = store.getState();
-                        let newMessageClick = () => {
-                            let action = addMessageActionCreator()
-                            store.dispatch(action)
-                        };
-
-                        let newMessageTextChange = (text) => {
-                            let action = updateMessageTextChangeActionCreator(text)
-                            store.dispatch(action)
-                        };
-                        return (
-                            <MessagesList
-                                newMessageClick={newMessageClick}
-                                newMessageTextChange={newMessageTextChange}
-                                messageItemsData={state.messagesComp.messageContainerComp.messageItemsData}
-                                newMessageText={state.messagesComp.messageContainerComp.newMessageText}
-                            />)
-                    }
-                }
-            </StoreContext.Consumer>
-        );
+let mapDispatchToProps = (dispatch) => ({
+    newMessageClick: () => {
+        dispatch(addMessageActionCreator())
+    },
+    newMessageTextChange: (text) => {
+        dispatch(updateMessageTextChangeActionCreator(text))
     }
-;
+})
+
+const MessagesListContainer = connect(mapStateToProps, mapDispatchToProps)(MessagesList)
 
 export default MessagesListContainer;
