@@ -1,0 +1,27 @@
+<script>
+    let a = { //Object #1
+        name: 'Solo',
+        students: ['St1', 'St2'], //Object #2
+        classroom: { //Object #3
+            teacher: { //Object #4
+                name: 'wew',
+                age: 18
+            }
+        }
+    }
+
+    //копия объекта но только первый уровень, уровень students classroom скопируются ссылки
+    // let b = {
+    //     ...a
+    // }
+
+    //полное копирование вручную
+    let b = {...a}
+    b.students = [...a.students]
+    b.classroom = {...a.classroom}
+    b.classroom.teacher = {...b.classroom.teacher}
+
+    b.classroom.teacher.name = 'Solo';
+    console.log(a.classroom.teacher.name)
+
+</script>
