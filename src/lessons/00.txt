@@ -1,4 +1,21 @@
-
+30. Уроки React JS (остановочка "react за час, часть 2")
+31. Уроки React JS - onClick, ref, VirtualDOM
+32. Уроки React JS - прокидываем callback через props
+33. Уроки React JS - добавление поста на стену (зачатки FLUX-концепции)
+34. Уроки React JS - Вынос мозга (FLUX-круговорот на каждый символ)
+35. Уроки, Курс React JS - callback, subscribe, observer
+36. Уроки, Курс React JS - про ООП поверхностно (зачем нам объекты)
+37. Уроки, Курс React JS - store, state, ООП, рефакторинг
+38. Уроки, Курс React JS - dispatch и action
+39 - Уроки, Курс React JS - action creator, action type
+40 - React JS Практика - добавление Сообщения
+41 - React JS Практика - reducer (почти redux)
+42 - React JS Практика - Redux
+43 - React JS Практика - container component (контейнерная компонента)
+44 - React JS Практика - Context API
+45 - React JS практика - connect, mapStateToProps, mapDispatchToProps
+46 - React JS практика - копия глубокая vs поверхностная (deep copy vs shallow copy)
+47 - React JS практика - Делаем копию состояния в ProfileReducer
 48 - React JS практика - Делаем копию состояния в DialogReducer
 
 
