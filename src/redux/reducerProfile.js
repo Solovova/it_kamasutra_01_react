@@ -21,11 +21,13 @@ const reducerProfile = (state = initialState, action) => {
             const key = sorted[sorted.length - 1] + 1
             let newPost = {
                 id: key,
-                message:state.postsComp.newPostText,
+                message: state.postsComp.newPostText,
                 likesCount: 0
             };
-            stateCopy.postsComp = {...state.postsComp}
-            stateCopy.postsComp.posts = [...state.postsComp.posts]
+            stateCopy.postsComp = {
+                ...state.postsComp,
+                posts: [...state.postsComp.posts]
+            }
             stateCopy.postsComp.posts.push(newPost);
             stateCopy.postsComp.newPostText = '';
             return stateCopy;
@@ -39,8 +41,8 @@ const reducerProfile = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type:ADD_POST});
-export const updatePostTextChangeActionCreator = (text) => ({type:UPDATE_POST_TEXT_CHANGE,newPostText: text});
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updatePostTextChangeActionCreator = (text) => ({type: UPDATE_POST_TEXT_CHANGE, newPostText: text});
 
 export default reducerProfile;
 

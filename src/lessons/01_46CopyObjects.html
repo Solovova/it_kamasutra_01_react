@@ -19,9 +19,18 @@
     let b = {...a}
     b.students = [...a.students]
     b.classroom = {...a.classroom}
-    b.classroom.teacher = {...b.classroom.teacher}
+    b.classroom.teacher = {...a.classroom.teacher}
 
     b.classroom.teacher.name = 'Solo';
     console.log(a.classroom.teacher.name)
+
+    let c = {
+        ...a,
+        students: [...a.students],
+        classroom: {
+            ...a.classroom,
+            teacher: {...a.classroom.teacher}
+        }
+    }
 
 </script>

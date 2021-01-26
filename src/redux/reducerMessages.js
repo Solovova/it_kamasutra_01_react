@@ -36,8 +36,10 @@ const reducerMessages = (state = initialState, action) => {
                 id: key,
                 message: stateCopy.messageContainerComp.newMessageText
             };
-            stateCopy.messageContainerComp = {...state.messageContainerComp}
-            stateCopy.messageContainerComp.messageItemsData = [...state.messageContainerComp.messageItemsData]
+            stateCopy.messageContainerComp = {
+                ...state.messageContainerComp,
+                messageItemsData: [...state.messageContainerComp.messageItemsData]
+            }
             stateCopy.messageContainerComp.messageItemsData.push(newMessage);
             stateCopy.messageContainerComp.newMessageText = '';
             return stateCopy;
