@@ -48,7 +48,7 @@ const Users = (props) => {
                         <div key={user.id}>
                             <span>
                                 <div>
-                                    <img src={user.photoUrl} className={styles.userPhoto}/>
+                                    <img alt="user" src={user.photoUrl} className={styles.userPhoto}/>
                                 </div>
                                 <div>
                                     {user.followed
