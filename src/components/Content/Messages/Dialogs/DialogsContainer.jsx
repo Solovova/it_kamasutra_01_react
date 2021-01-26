@@ -5,7 +5,7 @@ let mapStateToProps = (state) => ({
     dialogItemsData: state.messagesComp.dialogsComp.dialogItemsData
 })
 
-let mapDispatchToProps = (dispatch) => ({
+let mapDispatchToProps = () => ({
 
 })
 
