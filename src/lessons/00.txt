@@ -17,6 +17,7 @@
 46 - React JS практика - копия глубокая vs поверхностная (deep copy vs shallow copy)
 47 - React JS практика - Делаем копию состояния в ProfileReducer
 48 - React JS практика - Делаем копию состояния в DialogReducer
+49 - React JS практика - страница пользователей
 
 
 1. (components) компонента ето функция которая принимает props и возвращает jsx разметку

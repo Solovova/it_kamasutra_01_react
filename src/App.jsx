@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Content/Profile/Profile";
 import Messages from "./components/Content/Messages/Messages";
 import {Route} from "react-router-dom";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
     return (
@@ -16,6 +17,10 @@ const App = (props) => {
                 }/>
                 <Route path='/messages' render={() =>
                     <Messages />
+                }/>
+
+                <Route path='/users' render={() =>
+                    <UsersContainer />
                 }/>
             </div>
         </div>
