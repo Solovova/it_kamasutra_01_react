@@ -25,28 +25,31 @@ let initialState = {
 }
 
 const reducerMessages = (state = initialState, action) => {
-    let stateCopy = {...state}
-
     switch (action.type) {
         case ADD_MESSAGE:
-            const ids = stateCopy.messageContainerComp.messageItemsData.map(post => post.id);
+            const ids = state.messageContainerComp.messageItemsData.map(post => post.id);
             const sorted = ids.sort((a, b) => a - b);
             const key = sorted[sorted.length - 1] + 1
             let newMessage = {
                 id: key,
-                message: stateCopy.messageContainerComp.newMessageText
+                message: state.messageContainerComp.newMessageText
             };
-            stateCopy.messageContainerComp = {
-                ...state.messageContainerComp,
-                messageItemsData: [...state.messageContainerComp.messageItemsData]
+            return {
+                ...state,
+                messageContainerComp: {
+                    ...state.messageContainerComp,
+                    messageItemsData: [...state.messageContainerComp.messageItemsData, newMessage],
+                    newMessageText: ''
+                }
             }
-            stateCopy.messageContainerComp.messageItemsData.push(newMessage);
-            stateCopy.messageContainerComp.newMessageText = '';
-            return stateCopy;
         case UPDATE_MESSAGE_TEXT_CHANGE:
-            stateCopy.messageContainerComp = {...state.messageContainerComp}
-            stateCopy.messageContainerComp.newMessageText = action.newMessageText;
-            return stateCopy;
+            return {
+                ...state,
+                messageContainerComp: {
+                    ...state.messageContainerComp,
+                    newMessageText: action.newMessageText
+                }
+            }
         default:
             return state;
     }

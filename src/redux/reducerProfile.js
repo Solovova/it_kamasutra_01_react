@@ -12,7 +12,7 @@ let initialState = {
 }
 
 const reducerProfile = (state = initialState, action) => {
-    let stateCopy = {...state};
+
 
     switch (action.type) {
         case ADD_POST:
@@ -24,17 +24,22 @@ const reducerProfile = (state = initialState, action) => {
                 message: state.postsComp.newPostText,
                 likesCount: 0
             };
-            stateCopy.postsComp = {
-                ...state.postsComp,
-                posts: [...state.postsComp.posts]
-            }
-            stateCopy.postsComp.posts.push(newPost);
-            stateCopy.postsComp.newPostText = '';
-            return stateCopy;
+            return {
+                ...state,
+                postsComp: {
+                    ...state.postsComp,
+                    posts: [...state.postsComp.posts, newPost],
+                    newPostText: ''
+                }
+            };
         case UPDATE_POST_TEXT_CHANGE:
-            stateCopy.postsComp = {...state.postsComp}
-            stateCopy.postsComp.newPostText = action.newPostText;
-            return stateCopy;
+            return {
+                ...state,
+                postsComp: {
+                    ...state.postsComp,
+                    newPostText: action.newPostText
+                }
+            };
         default:
             return state;
     }
