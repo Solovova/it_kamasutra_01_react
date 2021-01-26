@@ -36,7 +36,6 @@ const reducerProfile = (state = initialState, action) => {
             stateCopy.postsComp.newPostText = action.newPostText;
             return stateCopy;
         default:
-            console.log("def prof")
             return state;
     }
 }

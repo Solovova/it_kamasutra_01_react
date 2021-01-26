@@ -5,7 +5,7 @@ import React from "react";
 
 const MessagesList = (props) => {
         let messageItemElements = props.messageItemsData.map(messageItem =>
-            <MessageItem message={messageItem.message}/>)
+            <MessageItem message={messageItem.message} key={messageItem.id}/>)
 
         let onNewMessageClick = () => {
             props.newMessageClick()
