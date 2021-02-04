@@ -19,7 +19,7 @@ const Users = (props) => {
                         <div key={user.id}>
                             <span>
                                 <div>
-                                    <img src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.userPhoto}/>
+                                    <img alt="user1" src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.userPhoto}/>
                                 </div>
                                 <div>
                                     {user.followed
